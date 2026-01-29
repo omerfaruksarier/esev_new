@@ -469,3 +469,34 @@
 
 	});
 }());
+
+
+/**
+ * Smaug Yazılım - Local Yönlendirme (Safe Mode)
+ */
+document.addEventListener('DOMContentLoaded', function () {
+	if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+		try {
+			const routes = {
+				'/hakkimizda': '/about.html',
+				'/iletisim': '/contact.html',
+				'/yazilar': '/articles.html',
+				'/dersler': '/videos.html',
+				'/bagis': '/donation.html',
+				'/islami-ilkeler-ve-islami-kimlik': '/islami-ilkeler-ve-islami-kimlik.html',
+				'/oz-elestiri-nefsi-muhasebe-etmek': '/oz-elestiri-nefsi-muhasebe-etmek.html',
+			};
+
+			const allLinks = document.querySelectorAll('a[href^="/"]');
+
+			allLinks.forEach(link => {
+				const currentHref = link.getAttribute('href');
+				if (routes[currentHref]) {
+					link.href = routes[currentHref];
+				}
+			});
+		} catch (err) {
+			console.warn("Router Hatası:", err);
+		}
+	}
+});
