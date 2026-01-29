@@ -1,0 +1,197 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+}
+
+#sc-body {
+    width: 100%;
+    flex: 2;
+}
+
+#sidebar {
+    background: rgb(17 17 72 / 95%);
+    width: 250px;
+    height: 100%;
+    color: rgb(235, 235, 235);
+    transition: width 1s ease-in-out;
+    overflow: visible;
+}
+
+.clsside {
+    width: 0px !important;
+    overflow: hidden !important;
+}
+
+.sd-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+    .sd-top img {
+        width: 75px;
+        height: 75px;
+        background: grey;
+        border-radius: 50%;
+        border: none;
+        display: block;
+        margin: 10px 0;
+    }
+
+.sp-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+}
+
+    .sp-div i {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+        .sp-div i:hover {
+            color: rgb(74 74 193);
+        }
+
+.sd-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+    .sd-body a {
+        text-decoration: none;
+        color: rgb(235, 235, 235);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+        .sd-body a i {
+            margin: 0 10px;
+        }
+
+        .sd-body a:hover {
+            background: rgb(74 74 193);
+        }
+
+.selected {
+    background: rgb(67, 67, 117);
+}
+
+#menu {
+    display: none;
+    cursor: pointer;
+    transition: visibility 1s;
+}
+
+    #menu:hover {
+        color: rgb(74 74 193);
+    }
+
+.menu {
+    font-size: 20px;
+    background: rgb(17 17 72 / 95%);
+    color: rgb(235, 235, 235);
+    padding: 10px;
+    display: inline-block !important;
+}
+
+
+table {
+    width: 750px;
+    border-collapse: collapse;
+    margin:30px auto;
+    width:100%;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table {
+        width: 100%;
+    }
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            /* Label the data */
+            content: attr(data-column);
+            color: #000;
+            font-weight: bold;
+        }
+}
+/*table a{
+    text-decoration:none;
+    padding:5px 15px;
+    color:white;
+    border-radius:5px;
+}
+*/
